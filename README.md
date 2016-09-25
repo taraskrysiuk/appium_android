@@ -8,4 +8,4 @@ Launch the image with *--privileged* option to allow docker instance to view con
 ``` bash
 $ docker run -d -p 8888:4732 --privileged -v /dev/bus/usb:/dev/bus/usb --name appium rgonalo/appium
 ```
-Appium server will be on -> 127.0.0.1:8888 - on host machine
+Appium server will be enable on -> 127.0.0.1:8888 - on host machine
