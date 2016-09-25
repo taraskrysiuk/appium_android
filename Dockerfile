@@ -1,9 +1,6 @@
 FROM ubuntu:16.04
 MAINTAINER Taras Krysiuk
 
-#=================
-#=repos for linux=
-#=================
 RUN echo "deb http://archive.ubuntu.com/ubuntu xenial main universe\n" > /etc/apt/sources.list \
   && echo "deb http://archive.ubuntu.com/ubuntu xenial-updates main universe\n" >> /etc/apt/sources.list \
   && echo "deb http://security.ubuntu.com/ubuntu xenial-security main universe\n" >> /etc/apt/sources.list
@@ -16,9 +13,6 @@ RUN apt-get update -qqy \
   && rm -rf /var/lib/apt/lists/* \
   && sed -i 's/securerandom\.source=file:\/dev\/random/securerandom\.source=file:\/dev\/urandom/' ./usr/lib/jvm/java-8-openjdk-amd64/jre/lib/security/java.security
 
-#=============
-#=Android SDK=
-#=============
 ENV ANDROID_SDK_VERSION 24.4.1
 ENV ANDROID_HOME /opt/android-sdk-linux
 ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
@@ -34,9 +28,6 @@ RUN cd /opt \
 ENV ANDROID_COMPONENTS platform-tools,build-tools-24.0.0
 RUN echo y | android update sdk --all --force --no-ui --filter ${ANDROID_COMPONENTS}
 
-#===================
-#=Nodejs and Appium=
-#===================
 ENV APPIUM_VERSION 1.5.3
 RUN apt-get update -qqy \
   && apt-get -qqy --no-install-recommends install \
