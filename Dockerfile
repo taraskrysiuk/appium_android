@@ -45,5 +45,4 @@ RUN mkdir /etc/udev/rules.d \
   && wget --no-verbose $UDEV_REMOTE_FILE -O /etc/udev/rules.d/51-android.rules
 
 EXPOSE 4723
-
 CMD appium
